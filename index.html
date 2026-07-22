@@ -207,7 +207,7 @@
                             <h2 id="activeGroupTitleHeader" class="text-lg font-black text-slate-800">Nama Grup Arisan</h2>
                         </div>
                         <div class="flex items-center gap-2 text-xs font-semibold text-slate-500 justify-center sm:justify-end mt-0.5">
-                            <span id="activeGroupAmountHeader" class="text-emerald-700 font-bold">Rp 0 / Orang</span>
+                            <span id="activeGroupAmountHeader" class="text-emerald-700 font-bold">Rp 0 / Bulan</span>
                             <span>•</span>
                             <span id="activeGroupAdminFeeHeader" class="text-amber-700">Ongkos Admin: Rp 0</span>
                         </div>
@@ -228,7 +228,7 @@
 
                     <div class="glass-card p-3.5 sm:p-4 rounded-2xl shadow-sm border-l-4 border-amber-500 flex items-center justify-between">
                         <div>
-                            <p class="text-[11px] font-semibold text-slate-400 uppercase">Status Bayar Bulan Ini</p>
+                            <p class="text-[11px] font-semibold text-slate-400 uppercase">Status Bayar Bln Ini</p>
                             <h3 id="statPaidCount" class="text-xl sm:text-2xl font-bold text-amber-600 mt-0.5">0</h3>
                         </div>
                         <div class="w-9 h-9 sm:w-10 sm:h-10 bg-amber-100 text-amber-700 rounded-xl flex items-center justify-center text-base">
@@ -281,7 +281,7 @@
                             <h3 class="text-base font-bold text-slate-800 flex items-center gap-2">
                                 📋 Daftar Peserta & Catatan Cicilan Arisan
                             </h3>
-                            <p class="text-xs text-slate-500">Iuran dapat dicicil. Hanya peserta LUNAS yang dapat menerima pencairan arisan.</p>
+                            <p class="text-xs text-slate-500">Iuran dibayarkan setiap bulan. Anggota yang sudah menang tetap wajib membayar hingga periode arisan selesai.</p>
                         </div>
                         <div class="flex items-center gap-2 w-full sm:w-auto">
                             <button id="btnAddMemberBtn" onclick="openAddMemberModal()" class="w-full sm:w-auto bg-emerald-700 hover:bg-emerald-800 text-white font-semibold px-3.5 py-2 rounded-xl text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow transition">
@@ -295,17 +295,17 @@
                         <div class="overflow-x-auto custom-scrollbar">
                             <table class="w-full text-left border-collapse min-w-[900px]">
                                 <thead>
-                                    <tr class="bg-slate-100/80 text-slate-600 text-xs uppercase font-bold border-b border-slate-200">
+                                    <tr class="bg-slate-100/80 text-slate-600 text-[11px] uppercase font-bold border-b border-slate-200 tracking-wide">
                                         <th class="p-3">Nama Anggota</th>
                                         <th class="p-3">No WhatsApp</th>
-                                        <th class="p-3 text-center" id="thNumberCol">Nomor Urut</th>
+                                        <th class="p-3 text-center" id="thNumberCol">No. Urut</th>
                                         <th class="p-3 text-right">Target Iuran</th>
-                                        <th class="p-3 text-center">Progress Cicilan</th>
+                                        <th class="p-3 text-center">Progress Lunas</th>
                                         <th class="p-3 text-right">Total Terbayar</th>
                                         <th class="p-3 text-right">Sisa Tagihan</th>
                                         <th class="p-3 text-center">Aksi Cicilan</th>
                                         <th class="p-3 text-center">Status Arisan</th>
-                                        <th class="p-3 text-center">Aksi Data</th>
+                                        <th class="p-3 text-center">Data</th>
                                     </tr>
                                 </thead>
                                 <tbody id="memberTableBody" class="divide-y divide-slate-100 text-xs sm:text-sm">
@@ -320,7 +320,7 @@
                     <div class="text-center max-w-xl mx-auto space-y-1.5">
                         <span class="bg-amber-100 text-amber-800 text-xs font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">🎉 Undian Spin Wheel</span>
                         <h3 class="text-xl sm:text-2xl font-extrabold text-slate-800">Roda Spin Julo-Julo Akurat</h3>
-                        <p class="text-xs text-slate-500">Hanya peserta yang <b>LUNAS 100%</b> dan <b>BELUM PERNAH MENANG</b> yang masuk ke dalam roda undian.</p>
+                        <p class="text-xs text-slate-500">Roda undian hanya dapat diputar jika <b>SELURUH ANGGOTA</b> telah melunasi tagihan periode berjalan.</p>
                     </div>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 items-start">
@@ -328,7 +328,7 @@
                             <div class="flex items-center justify-between border-b pb-2">
                                 <h4 class="font-bold text-slate-800 text-sm flex items-center gap-1.5">
                                     <i class="fa-solid fa-users-viewfinder text-emerald-600"></i>
-                                    <span>Kandidat Undian Lunas</span>
+                                    <span>Kandidat Belum Menang</span>
                                 </h4>
                                 <span id="eligibleCountBadge" class="bg-emerald-100 text-emerald-800 font-extrabold text-xs px-2.5 py-0.5 rounded-full">0 Orang</span>
                             </div>
@@ -465,7 +465,7 @@
                         <option value="number">🔢 Arisan Nomor Urut (Julo-Julo Aceh)</option>
                     </select>
                     <p id="groupTypeDescription" class="text-[11px] text-slate-500 mt-1 italic">
-                        Peserta diundi menggunakan Roda Spin acak dari daftar yang sudah Lunas.
+                        Peserta diundi menggunakan Roda Spin acak dari daftar anggota yang belum menang.
                     </p>
                 </div>
 
@@ -475,12 +475,12 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Target Iuran per Anggota (Rp) *</label>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Target Iuran per Anggota (Rp/Bulan) *</label>
                     <input type="number" id="inputGroupAmount" required min="10000" step="5000" placeholder="500000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Ongkos Admin per Anggota (Rp)</label>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Ongkos Admin per Anggota (Rp/Bulan)</label>
                     <input type="number" id="inputGroupAdminFee" min="0" step="1000" placeholder="25000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                 </div>
 
@@ -528,7 +528,7 @@
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Target Nominal Iuran Anggota (Rp) *</label>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Target Nominal Iuran (Rp/Bulan) *</label>
                     <input type="number" id="inputMemberAmount" required min="5000" step="5000" placeholder="500000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                 </div>
 
@@ -556,12 +556,12 @@
 
                 <div class="bg-slate-50 p-3 rounded-2xl border border-slate-200 text-xs space-y-1">
                     <div class="flex justify-between"><span class="text-slate-500">Anggota:</span> <b id="payMemberNameText" class="text-slate-800">-</b></div>
-                    <div class="flex justify-between"><span class="text-slate-500">Target Iuran:</span> <b id="payMemberTargetText" class="text-emerald-700">-</b></div>
+                    <div class="flex justify-between"><span class="text-slate-500">Target Siklus:</span> <b id="payMemberTargetText" class="text-emerald-700">-</b></div>
                     <div class="flex justify-between"><span class="text-slate-500">Sisa Tagihan:</span> <b id="payMemberRemainingText" class="text-amber-700">-</b></div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nominal Cicilan Ini (Rp) *</label>
+                    <label class="block text-xs font-semibold text-slate-600 mb-1">Nominal Setoran Ini (Rp) *</label>
                     <input type="number" id="inputPaymentAmount" required min="1000" step="1000" placeholder="250000" class="w-full px-3.5 py-2.5 border border-slate-200 rounded-xl text-sm focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                 </div>
 
@@ -581,7 +581,7 @@
 
                 <div>
                     <label class="block text-xs font-semibold text-slate-600 mb-1">Catatan Cicilan</label>
-                    <input type="text" id="inputPaymentNote" placeholder="Cicilan ke-1" class="w-full px-3.5 py-2 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
+                    <input type="text" id="inputPaymentNote" placeholder="Setoran bulan ini..." class="w-full px-3.5 py-2 border border-slate-200 rounded-xl text-xs focus:ring-2 focus:ring-emerald-500 focus:outline-none">
                 </div>
 
                 <div>
@@ -591,7 +591,7 @@
 
                 <div class="pt-2 flex justify-end gap-2">
                     <button type="button" onclick="closeModal('modalAddPayment')" class="px-4 py-2 text-xs font-bold text-slate-500 hover:bg-slate-100 rounded-xl">Batal</button>
-                    <button type="submit" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl shadow">+ Simpan Cicilan</button>
+                    <button type="submit" class="px-5 py-2 bg-emerald-700 hover:bg-emerald-800 text-white text-xs font-bold rounded-xl shadow">+ Simpan Pembayaran</button>
                 </div>
             </form>
         </div>
@@ -675,7 +675,7 @@
                 <p id="winnerModalSubText" class="text-xs font-extrabold text-slate-800"></p>
             </div>
             <p class="text-xs text-slate-800 font-medium bg-white/40 p-2.5 rounded-2xl">
-                Status peserta kini berubah menjadi <b>"Sudah Mendapat Arisan"</b>.
+                Anggota ini mendapatkan dana arisan, namun <b>kewajiban bayar bulanan tetap berjalan</b> hingga siklus selesai.
             </p>
             <button onclick="confirmWinner()" class="w-full py-3 bg-slate-950 hover:bg-slate-800 text-white font-extrabold rounded-2xl text-sm shadow-xl transition">
                 Simpan Ke Riwayat Pencairan 🎉
@@ -947,7 +947,6 @@
                 const groupMembers = window.state.members.filter(m => m.groupId === group.id);
                 const isNumberType = group.type === 'number';
                 const totalMoney = groupMembers.reduce((sum, m) => sum + (m.paidAmount || 0), 0);
-                const winnerCount = groupMembers.filter(m => m.isWinner).length;
 
                 return `
                     <div class="glass-card rounded-3xl p-5 border border-slate-200 shadow-sm hover:shadow-md transition flex flex-col justify-between space-y-4">
@@ -964,7 +963,7 @@
 
                             <div>
                                 <h3 class="font-black text-slate-800 text-lg leading-snug hover:text-emerald-700 cursor-pointer" onclick="openGroupWorkspace('${group.id}')">${escapeHtml(group.title)}</h3>
-                                <p class="text-xs font-bold text-emerald-700 mt-0.5">Rp ${formatRupiah(group.amount || 0)} <span class="text-slate-400 font-normal">/ anggota</span></p>
+                                <p class="text-xs font-bold text-emerald-700 mt-0.5">Rp ${formatRupiah(group.amount || 0)} <span class="text-slate-400 font-normal">/ bln</span></p>
                             </div>
 
                             <div class="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-2.5 rounded-2xl border border-slate-100">
@@ -993,11 +992,18 @@
             document.getElementById('activeGroupTitleHeader').innerText = group.title;
             document.getElementById('activeGroupTypeBadge').innerText = isNumberGroup ? '🔢 Nomor Urut (Julo-Julo)' : '🎯 Spin Wheel';
             document.getElementById('activeGroupTypeBadge').className = isNumberGroup ? 'bg-indigo-100 text-indigo-800 font-extrabold text-[11px] px-2.5 py-0.5 rounded-full' : 'bg-amber-100 text-amber-800 font-extrabold text-[11px] px-2.5 py-0.5 rounded-full';
-            document.getElementById('activeGroupAmountHeader').innerText = `Rp ${formatRupiah(group.amount || 0)} / Orang`;
+            document.getElementById('activeGroupAmountHeader').innerText = `Rp ${formatRupiah(group.amount || 0)} / Bln`;
             document.getElementById('activeGroupAdminFeeHeader').innerText = `Ongkos Admin: Rp ${formatRupiah(group.adminFee || 0)}`;
 
+            // Logika Periode
+            const totalCyclePeriods = isNumberGroup ? (group.maxNumbers || 12) : (groupMembers.length || 1);
+            const currentPeriod = Math.min(groupMembers.filter(m => m.isWinner).length + 1, totalCyclePeriods);
+
             // Update Stats
-            const paidCount = groupMembers.filter(m => (m.paidAmount || 0) >= (m.targetAmount || group.amount)).length;
+            const paidCount = groupMembers.filter(m => {
+                const monthlyAmount = m.targetAmount || group.amount || 0;
+                return (m.paidAmount || 0) >= monthlyAmount * currentPeriod;
+            }).length;
             const totalMoney = groupMembers.reduce((sum, m) => sum + (m.paidAmount || 0), 0);
             const winnersCount = groupMembers.filter(m => m.isWinner).length;
 
@@ -1019,15 +1025,15 @@
                 document.getElementById('thNumberCol').classList.add('hidden');
             }
 
-            renderMemberTable(group, groupMembers);
-            renderEligibleSpinMembers(groupMembers);
+            renderMemberTable(group, groupMembers, totalCyclePeriods, currentPeriod);
+            renderEligibleSpinMembers(groupMembers, group, currentPeriod);
             renderNumberSlotsGrid(group, groupMembers);
             renderWinnerHistory(group.id);
 
             document.getElementById('groupNotesTextarea').value = group.notes || '';
         }
 
-        function renderMemberTable(group, groupMembers) {
+        function renderMemberTable(group, groupMembers, totalCyclePeriods, currentPeriod) {
             const tbody = document.getElementById('memberTableBody');
             if (!tbody) return;
 
@@ -1045,49 +1051,67 @@
             const isNumberGroup = group.type === 'number';
 
             tbody.innerHTML = groupMembers.map(m => {
-                const target = m.targetAmount || group.amount || 0;
+                const monthlyAmount = m.targetAmount || group.amount || 0;
+                const totalTarget = monthlyAmount * totalCyclePeriods;
+                const targetCurrentPeriod = monthlyAmount * currentPeriod;
                 const paid = m.paidAmount || 0;
-                const remaining = Math.max(0, target - paid);
-                const percent = Math.min(100, Math.round((paid / target) * 100));
+                const remainingTotal = Math.max(0, totalTarget - paid);
+                const percent = Math.min(100, Math.round((paid / totalTarget) * 100));
 
-                let statusBadge = '';
-                if (m.isWinner) {
-                    statusBadge = `<span class="bg-purple-100 text-purple-800 font-extrabold px-2.5 py-1 rounded-full text-[11px]"><i class="fa-solid fa-trophy mr-1"></i> Menang</span>`;
-                } else if (paid >= target) {
-                    statusBadge = `<span class="bg-emerald-100 text-emerald-800 font-extrabold px-2.5 py-1 rounded-full text-[11px]"><i class="fa-solid fa-check mr-1"></i> Lunas</span>`;
-                } else if (paid > 0) {
-                    statusBadge = `<span class="bg-amber-100 text-amber-800 font-extrabold px-2.5 py-1 rounded-full text-[11px]"><i class="fa-solid fa-spinner mr-1"></i> Dicicil</span>`;
+                let statusPembayaran = '';
+                if (paid >= totalTarget) {
+                    statusPembayaran = `<span class="text-[10px] font-bold text-emerald-700">Lunas Siklus</span>`;
+                } else if (paid >= targetCurrentPeriod) {
+                    statusPembayaran = `<span class="text-[10px] font-bold text-emerald-600">Lunas Bln ${currentPeriod}</span>`;
+                } else if (paid > targetCurrentPeriod - monthlyAmount) {
+                    statusPembayaran = `<span class="text-[10px] font-bold text-amber-600">Nyicil Bln ${currentPeriod}</span>`;
                 } else {
-                    statusBadge = `<span class="bg-slate-100 text-slate-600 font-bold px-2.5 py-1 rounded-full text-[11px]">Belum Bayar</span>`;
+                    statusPembayaran = `<span class="text-[10px] font-bold text-red-600">Blm Bayar Bln ${currentPeriod}</span>`;
                 }
+
+                let statusPemenang = m.isWinner ?
+                    `<span class="text-[10px] font-bold text-purple-700"><i class="fa-solid fa-trophy mr-1"></i>Sudah Menang</span>` :
+                    `<span class="text-[10px] font-bold text-slate-500">Belum Menang</span>`;
+
+                let statusKeanggotaan = (paid >= totalTarget && currentPeriod >= totalCyclePeriods) ?
+                    `<span class="text-[10px] font-black text-blue-700">Selesai</span>` :
+                    `<span class="text-[10px] font-bold text-green-700">Aktif</span>`;
 
                 return `
                     <tr class="hover:bg-slate-50/80 transition">
                         <td class="p-3 font-bold text-slate-800">${escapeHtml(m.name)}</td>
-                        <td class="p-3 text-slate-500 font-mono text-xs">${escapeHtml(m.phone || '-')}</td>
+                        <td class="p-3 text-slate-500 font-mono text-[11px]">${escapeHtml(m.phone || '-')}</td>
                         ${isNumberGroup ? `<td class="p-3 text-center"><span class="w-7 h-7 bg-indigo-100 text-indigo-800 font-black rounded-lg inline-flex items-center justify-center text-xs">${m.slotNumber || '-'}</span></td>` : '<td class="hidden"></td>'}
-                        <td class="p-3 text-right font-bold text-slate-700">Rp ${formatRupiah(target)}</td>
-                        <td class="p-3 text-center w-32">
+                        <td class="p-3 text-right font-bold text-slate-700 leading-tight">Rp ${formatRupiah(totalTarget)}<br><span class="text-[9px] text-slate-400 font-normal tracking-wide">(${formatRupiah(monthlyAmount)}/bln)</span></td>
+                        <td class="p-3 text-center w-28">
                             <div class="w-full bg-slate-200 rounded-full h-2 mb-1">
                                 <div class="bg-emerald-600 h-2 rounded-full transition-all duration-300" style="width: ${percent}%"></div>
                             </div>
                             <span class="text-[10px] font-bold text-slate-500">${percent}%</span>
                         </td>
                         <td class="p-3 text-right font-bold text-emerald-700">Rp ${formatRupiah(paid)}</td>
-                        <td class="p-3 text-right font-bold text-amber-700">Rp ${formatRupiah(remaining)}</td>
+                        <td class="p-3 text-right font-bold text-amber-700">Rp ${formatRupiah(remainingTotal)}</td>
                         <td class="p-3 text-center">
                             <div class="flex items-center justify-center gap-1">
-                                <button onclick="openAddPaymentModal('${m.id}')" class="px-2.5 py-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-xs shadow transition">
+                                <button onclick="openAddPaymentModal('${m.id}')" class="px-2.5 py-1.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold rounded-lg text-[11px] shadow transition ${paid >= totalTarget ? 'opacity-50 cursor-not-allowed' : ''}" ${paid >= totalTarget ? 'disabled' : ''}>
                                     + Cicil
                                 </button>
-                                <button onclick="openPaymentHistoryModal('${m.id}')" class="p-1 text-slate-400 hover:text-slate-600 text-xs" title="Riwayat Cicilan">
+                                <button onclick="openPaymentHistoryModal('${m.id}')" class="p-1.5 text-slate-400 hover:text-slate-600 text-xs" title="Riwayat Cicilan">
                                     <i class="fa-solid fa-receipt"></i>
                                 </button>
                             </div>
                         </td>
-                        <td class="p-3 text-center">${statusBadge}</td>
+                        <td class="p-2 text-center">
+                            <div class="flex flex-col items-center justify-center gap-0.5 bg-slate-100/80 rounded py-1 px-1.5 border border-slate-200 w-[110px] mx-auto">
+                                ${statusPembayaran}
+                                <div class="w-full h-px bg-slate-200 my-0.5"></div>
+                                ${statusPemenang}
+                                <div class="w-full h-px bg-slate-200 my-0.5"></div>
+                                ${statusKeanggotaan}
+                            </div>
+                        </td>
                         <td class="p-3 text-center">
-                            <div class="flex items-center justify-center gap-1">
+                            <div class="flex items-center justify-center gap-1.5">
                                 <button onclick="openEditMemberModal('${m.id}')" class="text-slate-400 hover:text-slate-600 p-1 text-xs"><i class="fa-solid fa-pen"></i></button>
                                 <button onclick="confirmDeleteMember('${m.id}')" class="text-slate-400 hover:text-red-600 p-1 text-xs"><i class="fa-solid fa-trash"></i></button>
                             </div>
@@ -1097,26 +1121,29 @@
             }).join('');
         }
 
-        function renderEligibleSpinMembers(groupMembers) {
+        function renderEligibleSpinMembers(groupMembers, group, currentPeriod) {
             const listContainer = document.getElementById('eligibleMemberList');
             const badge = document.getElementById('eligibleCountBadge');
             if (!listContainer) return;
 
-            const group = window.state.groups.find(g => g.id === window.state.activeGroupId);
-            const target = group ? group.amount : 0;
-
-            const eligible = groupMembers.filter(m => !m.isWinner && (m.paidAmount || 0) >= (m.targetAmount || target));
+            // Eligible for spin = Not yet a winner. Wheel validates if they paid.
+            const eligible = groupMembers.filter(m => !m.isWinner);
             badge.innerText = `${eligible.length} Orang`;
 
             if (eligible.length === 0) {
-                listContainer.innerHTML = `<div class="text-center py-6 text-slate-400 text-xs">Belum ada peserta yang lunas 100% atau semua peserta sudah menang.</div>`;
+                listContainer.innerHTML = `<div class="text-center py-6 text-slate-400 text-xs">Seluruh peserta di dalam grup ini sudah mendapatkan arisan.</div>`;
             } else {
-                listContainer.innerHTML = eligible.map(m => `
-                    <div class="p-2.5 bg-emerald-50 border border-emerald-200 rounded-xl flex items-center justify-between text-xs font-bold text-emerald-900">
-                        <span><i class="fa-solid fa-circle-check text-emerald-600 mr-1.5"></i> ${escapeHtml(m.name)}</span>
-                        <span class="text-[10px] bg-emerald-200 text-emerald-800 px-2 py-0.5 rounded-full">Siap Spin</span>
+                listContainer.innerHTML = eligible.map(m => {
+                    const monthlyAmount = m.targetAmount || group.amount || 0;
+                    const targetCurrentPeriod = monthlyAmount * currentPeriod;
+                    const hasPaidCurrent = (m.paidAmount || 0) >= targetCurrentPeriod;
+
+                    return `
+                    <div class="p-2.5 ${hasPaidCurrent ? 'bg-emerald-50 border-emerald-200 text-emerald-900' : 'bg-red-50 border-red-200 text-red-900'} border rounded-xl flex items-center justify-between text-xs font-bold">
+                        <span><i class="fa-solid ${hasPaidCurrent ? 'fa-circle-check text-emerald-600' : 'fa-circle-xmark text-red-600'} mr-1.5"></i> ${escapeHtml(m.name)}</span>
+                        <span class="text-[10px] ${hasPaidCurrent ? 'bg-emerald-200 text-emerald-800' : 'bg-red-200 text-red-800'} px-2 py-0.5 rounded-full">${hasPaidCurrent ? 'Siap Spin' : 'Tunggak Bln Ini'}</span>
                     </div>
-                `).join('');
+                `}).join('');
             }
         }
 
@@ -1137,7 +1164,7 @@
             if (!group) return;
 
             const groupMembers = window.state.members.filter(m => m.groupId === group.id);
-            const eligible = groupMembers.filter(m => !m.isWinner && (m.paidAmount || 0) >= (m.targetAmount || group.amount));
+            const eligible = groupMembers.filter(m => !m.isWinner);
 
             if (eligible.length === 0) {
                 ctx.fillStyle = '#f8fafc';
@@ -1151,7 +1178,7 @@
                 ctx.fillStyle = '#94a3b8';
                 ctx.font = 'bold 14px "Plus Jakarta Sans"';
                 ctx.textAlign = 'center';
-                ctx.fillText('Tidak Ada Peserta Lunas', radius, radius);
+                ctx.fillText('Semua Sudah Menang', radius, radius);
                 return;
             }
 
@@ -1192,10 +1219,25 @@
             if (!group) return;
 
             const groupMembers = window.state.members.filter(m => m.groupId === group.id);
-            const eligible = groupMembers.filter(m => !m.isWinner && (m.paidAmount || 0) >= (m.targetAmount || group.amount));
+            const totalCyclePeriods = groupMembers.length || 1;
+            const currentPeriod = Math.min(groupMembers.filter(m => m.isWinner).length + 1, totalCyclePeriods);
+
+            // Logic Validation: Seluruh anggota (menang maupun belum) HARUS lunas bulan berjalan
+            const allMembersPaidCurrentPeriod = groupMembers.every(m => {
+                const monthlyAmount = m.targetAmount || group.amount || 0;
+                const targetCurrentPeriod = monthlyAmount * currentPeriod;
+                return (m.paidAmount || 0) >= targetCurrentPeriod;
+            });
+
+            if (!allMembersPaidCurrentPeriod) {
+                showToast(`Gagal! Seluruh anggota grup harus melunasi iuran bulan ke-${currentPeriod} sebelum Spin diputar.`, "fa-triangle-exclamation");
+                return;
+            }
+
+            const eligible = groupMembers.filter(m => !m.isWinner);
 
             if (eligible.length === 0) {
-                showToast("Tidak ada kandidat lunas untuk diundi!", "fa-circle-xmark");
+                showToast("Tidak ada kandidat untuk diundi! Semua anggota sudah menang.", "fa-circle-xmark");
                 return;
             }
 
@@ -1220,7 +1262,6 @@
                 const progress = (timestamp - start) / duration;
 
                 if (progress < 1) {
-                    // Ease out cubic
                     const ease = 1 - Math.pow(1 - progress, 3);
                     currentAngle = ease * totalRotation;
                     drawWheel();
@@ -1328,7 +1369,10 @@
             window.state.currentWinningMember = member;
 
             const group = window.state.groups.find(g => g.id === member.groupId);
-            const totalWinnerCash = (group ? group.amount : 0) * (window.state.members.filter(m => m.groupId === member.groupId).length || 1);
+            const groupMembers = window.state.members.filter(m => m.groupId === member.groupId);
+            const isNumberGroup = group && group.type === 'number';
+            const totalCyclePeriods = isNumberGroup ? (group.maxNumbers || 12) : (groupMembers.length || 1);
+            const totalWinnerCash = (member.targetAmount || (group ? group.amount : 0)) * totalCyclePeriods;
 
             document.getElementById('winnerModalName').innerText = member.name;
             document.getElementById('winnerModalAmount').innerText = `Rp ${formatRupiah(totalWinnerCash)}`;
@@ -1355,7 +1399,10 @@
             await saveMemberToFirestore(member);
 
             const group = window.state.groups.find(g => g.id === member.groupId);
-            const totalWinnerCash = (group ? group.amount : 0) * (window.state.members.filter(m => m.groupId === member.groupId).length || 1);
+            const groupMembers = window.state.members.filter(m => m.groupId === member.groupId);
+            const isNumberGroup = group && group.type === 'number';
+            const totalCyclePeriods = isNumberGroup ? (group.maxNumbers || 12) : (groupMembers.length || 1);
+            const totalWinnerCash = (member.targetAmount || (group ? group.amount : 0)) * totalCyclePeriods;
 
             const winnerHistoryObj = {
                 id: 'win_' + Date.now(),
@@ -1448,7 +1495,7 @@
                 desc.innerText = "Peserta memilih nomor urut (1-N). Pencairan dilakukan berurutan sesuai bulan/periode.";
             } else {
                 container.classList.add('hidden');
-                desc.innerText = "Peserta diundi menggunakan Roda Spin acak dari daftar yang sudah Lunas.";
+                desc.innerText = "Peserta diundi menggunakan Roda Spin acak dari daftar anggota yang belum menang.";
             }
         };
 
@@ -1587,15 +1634,22 @@
             if (!member) return;
 
             const group = window.state.groups.find(g => g.id === member.groupId);
-            const target = member.targetAmount || group.amount;
-            const remaining = Math.max(0, target - (member.paidAmount || 0));
+            const isNumberGroup = group.type === 'number';
+            const groupMembers = window.state.members.filter(m => m.groupId === group.id);
+            const totalCyclePeriods = isNumberGroup ? (group.maxNumbers || 12) : (groupMembers.length || 1);
+
+            const monthlyAmount = member.targetAmount || group.amount;
+            const totalTarget = monthlyAmount * totalCyclePeriods;
+            const remaining = Math.max(0, totalTarget - (member.paidAmount || 0));
 
             document.getElementById('paymentMemberId').value = member.id;
             document.getElementById('payMemberNameText').innerText = member.name;
-            document.getElementById('payMemberTargetText').innerText = `Rp ${formatRupiah(target)}`;
+            document.getElementById('payMemberTargetText').innerText = `Rp ${formatRupiah(totalTarget)}`;
             document.getElementById('payMemberRemainingText').innerText = `Rp ${formatRupiah(remaining)}`;
 
-            document.getElementById('inputPaymentAmount').value = remaining > 0 ? remaining : '';
+            const defaultPay = remaining >= monthlyAmount ? monthlyAmount : remaining;
+            document.getElementById('inputPaymentAmount').value = defaultPay > 0 ? defaultPay : '';
+            
             document.getElementById('inputPaymentDate').value = new Date().toISOString().slice(0, 16);
             document.getElementById('inputPaymentNote').value = '';
             document.getElementById('inputPaymentProof').value = '';
@@ -1766,14 +1820,28 @@
             const group = window.state.groups.find(g => g.id === window.state.activeGroupId);
             const groupMembers = window.state.members.filter(m => m.groupId === window.state.activeGroupId);
 
-            let csv = 'Nama Anggota,No WhatsApp,Nomor Urut,Target Iuran,Total Terbayar,Sisa Tagihan,Status\n';
-            groupMembers.forEach(m => {
-                const target = m.targetAmount || (group ? group.amount : 0);
-                const paid = m.paidAmount || 0;
-                const remaining = Math.max(0, target - paid);
-                const status = m.isWinner ? 'Menang' : (paid >= target ? 'Lunas' : 'Belum Lunas');
+            const isNumberGroup = group && group.type === 'number';
+            const totalCyclePeriods = isNumberGroup ? (group.maxNumbers || 12) : (groupMembers.length || 1);
+            const currentPeriod = Math.min(groupMembers.filter(m => m.isWinner).length + 1, totalCyclePeriods);
 
-                csv += `"${m.name}","${m.phone || ''}","${m.slotNumber || ''}",${target},${paid},${remaining},"${status}"\n`;
+            let csv = 'Nama Anggota,No WhatsApp,Nomor Urut,Target Iuran Total,Total Terbayar,Sisa Tagihan,Status Pemenang,Status Pembayaran\n';
+            groupMembers.forEach(m => {
+                const monthlyAmount = m.targetAmount || (group ? group.amount : 0);
+                const totalTarget = monthlyAmount * totalCyclePeriods;
+                const paid = m.paidAmount || 0;
+                const remaining = Math.max(0, totalTarget - paid);
+                
+                const pemenangStatus = m.isWinner ? 'Sudah Menang' : 'Belum Menang';
+                let bayarStatus = 'Belum Lunas';
+                if (paid >= totalTarget) {
+                    bayarStatus = 'Lunas Siklus';
+                } else if (paid >= monthlyAmount * currentPeriod) {
+                    bayarStatus = `Lunas Bulan ${currentPeriod}`;
+                } else {
+                    bayarStatus = `Tunggakan (Target Bln ${currentPeriod})`;
+                }
+
+                csv += `"${m.name}","${m.phone || ''}","${m.slotNumber || ''}",${totalTarget},${paid},${remaining},"${pemenangStatus}","${bayarStatus}"\n`;
             });
 
             const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
